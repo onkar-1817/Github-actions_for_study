@@ -21,6 +21,7 @@ jobs:
     sonar-scan:
         needs: code
         uses: ./.github/workflows/sonar_scan.yml
+        secrets: inherit
 
     # Build
    # build-and-push:
