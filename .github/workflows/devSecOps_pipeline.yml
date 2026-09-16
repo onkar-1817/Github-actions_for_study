@@ -42,7 +42,13 @@ jobs:
 
     
     # Deploy
-   #  deploy:
-    #   secrets: inherit
-     #  needs: [code,build-and-push]
-     #  uses: ./.github/workflows/cd.yml
+    deploy:
+       secrets: inherit
+       needs: docker-push
+       uses: ./.github/workflows/cd.yml
+
+    # Dast Scan
+    dast-scan:
+       secrets: inherit
+       needs: deploy
+       uses: ./.github/workflows/dast.yml
