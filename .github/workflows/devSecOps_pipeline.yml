@@ -28,11 +28,11 @@ jobs:
         needs: sonar-scan
         uses: ./.github/workflows/dependency_scan.yml
 
-    # Build
-   # build-and-push:
-     #   secrets: inherit
-     #   needs: code
-     #   uses: ./.github/workflows/docker.yml
+    # Build and Scan
+    build-and-scan:
+        secrets: inherit
+        needs: dependency-scan
+        uses: ./.github/workflows/trivy_scans.yml
 
     
     # Deploy
