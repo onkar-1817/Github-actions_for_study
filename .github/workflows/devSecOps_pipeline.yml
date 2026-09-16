@@ -17,7 +17,11 @@ jobs:
         needs: secret-scan
         uses: ./.github/workflows/lint-test.yml
    
-        
+    #sonar-scan
+    sonar-scan:
+        needs: code
+        uses: ./.github/workflows/sonar_scan.yml
+
     # Build
    # build-and-push:
      #   secrets: inherit
